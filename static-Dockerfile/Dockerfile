@@ -1,5 +1,6 @@
 FROM nginx:latest
-
+RUN mv /etc/apt/sources.list /etc/apt/sources.list.bak
+COPY sources.list /etc/apt/
 RUN mkdir -p /sdata/www/
 ADD dist.tar.gz /sdata/www/
 RUN rm -f /etc/nginx/conf.d/*
